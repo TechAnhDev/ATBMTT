@@ -1,0 +1,180 @@
+.preview {
+  width: 100%;
+  height: 400px;
+  z-index: 99;
+
+  // border: 1px #fff dotted;
+
+  position: relative;
+  z-index: 0;
+  overflow: hidden;
+  padding: 1rem;
+
+  &::before {
+    content: '';
+    position: absolute;
+    z-index: -2;
+    left: -50%;
+    top: -50%;
+    width: 200%;
+    height: 200%;
+    background-color: #399953;
+    background-repeat: no-repeat;
+    background-size: 50% 50%, 50% 50%;
+    background-position: 0 0, 100% 0, 100% 100%, 0 100%;
+    background-image: linear-gradient(#399953, #399953), linear-gradient(#fbb300, #fbb300),
+      linear-gradient(#d53e33, #d53e33), linear-gradient(#377af5, #377af5);
+    animation: rotate 4s linear infinite;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    left: 6px;
+    top: 6px;
+    width: calc(100% - 12px);
+    height: calc(100% - 12px);
+    background: white;
+    border-radius: 5px;
+    animation: opacityChange 3s infinite alternate;
+  }
+}
+
+@keyframes opacityChange {
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.9;
+  }
+}
+@keyframes rotate {
+  100% {
+    transform: rotate(1turn);
+  }
+}
+img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+@keyframes border-anim {
+  0% {
+    border-image: linear-gradient(0deg, rgba(243, 230, 230, 0) 50%, white 50%);
+  }
+  100% {
+    border-image: linear-gradient(360deg, rgba(251, 251, 251, 0) 50%, white 50%);
+  }
+}
+h1 {
+  background-image: -webkit-linear-gradient(125deg, #f2291b, #f7db25, #84f527);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: hue 4s infinite linear;
+  font-weight: 700;
+  line-height: 1.2;
+}
+@keyframes hue {
+  from {
+    filter: hue-rotate(0deg);
+  }
+  to {
+    filter: hue-rotate(-360deg);
+  }
+}
+.file {
+  color: #a8eb12;
+}
+
+.input {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  input {
+    flex: 1;
+    padding: 1em;
+  }
+
+  input {
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, rgba(191, 123, 255, 0.781), rgb(217, 176, 255), #c6ffdd);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, rgba(191, 123, 255, 0.781), rgb(217, 176, 255), #c6ffdd);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background-repeat: no-repeat;
+    border: none;
+    outline: none;
+    border-color: transparent;
+    width: 100%;
+    height: 50px;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-weight: 500;
+    font-family: inherit;
+    border-radius: 20px;
+    // box-shadow: 23px 23px 46px #bebebe, -23px -23px 46px #ffffff;
+  }
+
+  input::placeholder {
+    color: white;
+  }
+
+  button {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    align-items: center;
+    --glow-color: rgb(217, 176, 255);
+    --glow-spread-color: rgba(191, 123, 255, 0.781);
+    --enhanced-glow-color: rgb(231, 206, 255);
+    --btn-color: rgb(100, 61, 136);
+    border: 0.25em solid var(--glow-color);
+    padding: 1em;
+    width: 200px;
+    color: var(--glow-color);
+    font-size: 15px;
+    font-weight: bold;
+    background-color: var(--btn-color);
+    border-radius: 1em;
+    outline: none;
+    // box-shadow: 0 0 1em 0.25em var(--glow-color), 0 0 4em 1em var(--glow-spread-color),
+    //   inset 0 0 0.75em 0.25em var(--glow-color);
+    text-shadow: 0 0 0.5em var(--glow-color);
+    position: relative;
+    transition: all 0.3s;
+  }
+
+  button::after {
+    pointer-events: none;
+    content: '';
+    position: absolute;
+    top: 120%;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: var(--glow-spread-color);
+    filter: blur(2em);
+    opacity: 0.7;
+    transform: perspective(1.5em) rotateX(35deg) scale(1, 0.6);
+  }
+  button:hover {
+    cursor: pointer;
+    color: var(--btn-color);
+    background-color: var(--glow-color);
+    box-shadow: 0 0 1em 0.25em var(--glow-color), 0 0 4em 2em var(--glow-spread-color),
+      inset 0 0 0.75em 0.25em var(--glow-color);
+  }
+
+  button:active {
+    box-shadow: 0 0 0.6em 0.25em var(--glow-color), 0 0 2.5em 2em var(--glow-spread-color),
+      inset 0 0 0.5em 0.25em var(--glow-color);
+  }
+}

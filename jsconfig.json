@@ -1,0 +1,8 @@
+{
+  "compilerOptions": {
+    "paths": {
+      "~/*": ["./src/*"]
+    }
+  }
+}
+//dung de khi dung ~ thi click vao se chuyen toi file vua click

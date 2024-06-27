@@ -1,0 +1,68 @@
+.container {
+  margin-top: 40px;
+
+  .text {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+
+    .name {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      width: 100%;
+      justify-content: center;
+      h1 {
+        background-image: -webkit-linear-gradient(125deg, #f2291b, #f7db25, #84f527);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        animation: hue 2s infinite linear;
+        font-weight: 700;
+        line-height: 1.2;
+      }
+      @keyframes hue {
+        from {
+          filter: hue-rotate(0deg);
+        }
+        to {
+          filter: hue-rotate(-360deg);
+        }
+      }
+    }
+    .title {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 30px;
+      .group {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 15px;
+        background-color: rgb(44, 55, 5);
+        color: rgb(221, 221, 221);
+
+        border-radius: 30px 0;
+      }
+      .ten {
+        background-color: rgb(168, 235, 18);
+        color: rgb(34, 34, 34);
+        padding: 15px;
+        border-radius: 50px 0;
+      }
+      .language {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 15px;
+        background-color: rgb(28, 37, 7);
+        color: rgb(221, 221, 221);
+
+        border-radius: 30px 0;
+      }
+    }
+  }
+}
